@@ -27,8 +27,6 @@ char ** to_txt(char ** str)
 
 void load_2d_arr_from_file(char ** av)
 {
-    //buffer = malloc(sizeof(char) * (atoi(av[1]) * atoi(av[2])));
-
     char **str = malloc(sizeof(char *) * (atoi(av[2])));
     int i = 0;
 
@@ -70,5 +68,5 @@ int main(int ac, char ** av)
         load_2d_arr_from_file(av);
     else
         return (84);
-    return(0);
+    return (0);
 }
