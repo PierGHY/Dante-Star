@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <fcntl.h>
+#include <time.h>
 
 char ** to_txt(char ** str)
 {
@@ -44,12 +45,15 @@ void disp(char ** str, char ** av)
     int i = 0;
     int j = 0;
     int k = 0;
+    int r = 0;
 
+    srand(time(NULL));
     while (i != atoi(av[2])) {
         while (j != atoi(av[1]) + 1) {
+            r = rand();
             if (j == atoi(av[1]))
                 str[i][j] = '\n';
-            else if (j == 0 && i == 0 || j == 0 || i == atoi(av[2]) -1)
+            else if (j == 0 && i == 0 || j == 0 || i == atoi(av[2]) -1 || r % 2 == 0)
                 str[i][j] = '*';
             else
                 str[i][j] = 'X';
