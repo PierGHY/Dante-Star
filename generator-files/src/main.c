@@ -1,18 +1,13 @@
 /*
 ** EPITECH PROJECT, 2019
-** main
+** CPE_dante_2018
 ** File description:
-** a
+** main
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
-#include <time.h>
+#include "generator.h"
 
-char ** to_txt(char ** str)
+char **to_txt(char **str)
 {
     int i = 0;
 
@@ -25,7 +20,7 @@ char ** to_txt(char ** str)
     }
 }
 
-void load_2d_arr_from_file(char ** av)
+void load_2d_arr_from_file(char **av)
 {
     char **str = malloc(sizeof(char *) * (atoi(av[2])));
     int i = 0;
@@ -38,7 +33,7 @@ void load_2d_arr_from_file(char ** av)
     disp(str, av);
 }
 
-void disp(char ** str, char ** av)
+void disp(char **str, char **av)
 {
     int r = 0;
 
@@ -62,7 +57,7 @@ void disp(char ** str, char ** av)
     return (str);
 }
 
-int main(int ac, char ** av)
+int main(int ac, char **av)
 {
     if (ac != 2)
         load_2d_arr_from_file(av);
