@@ -39,18 +39,18 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	@$(CC) $(LDFLAGS) -o $(NAME) $(OBJ) $(CGRAPHICS)
-	@echo -e "$(GREEN)=========( COMPLETED )=========$(END)"
+	@echo -e "$(GREEN)=========( GENERATOR COMPLETED )=========$(END)"
 
 test_run:	$(OBJ-CRIT)
 	@$(CC) $(CFLAGS) $(CRITFLAGS) $(OBJ-CRIT)
-	@echo -e "$(GREEN)=========( COMPLETED )=========$(END)"
+	@echo -e "$(GREEN)=========( GENERATOR COMPLETED )=========$(END)"
 	./a.out
 
 clean:
 	@find . -type f \( -iname "*~" \) -delete
 	@$(RM) $(OBJ)
 	@$(RM) $(OBJ-CRIT)
-	@echo -e "$(RED)=========( CLEANED )=========$(END)"
+	@echo -e "$(RED)=========(  GENERATOR CLEANED  )=========$(END)"
 
 fclean:	clean
 	@$(RM) -r $(DIROBJ)
@@ -60,6 +60,7 @@ fclean:	clean
 re:	fclean all
 
 $(DIROBJ):
+	@echo -e "$(GREEN)=========( COMPILING GENERATOR )=========$(END)"
 	@mkdir -p $@ \
 	&& echo -e "$(GREEN)[OK]\t$(BLUE)Creating:$(WHITE)$(BOLD)" $(DIROBJ) "$(END)" \
 	|| echo -e "$(RED)[KO]\tCan't create:$(BOLD)" $(DIROBJ) "$(END)"
