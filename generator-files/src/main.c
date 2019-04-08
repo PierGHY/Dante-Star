@@ -7,6 +7,18 @@
 
 #include "generator.h"
 
+void to_txt(char ** str, char ** av)
+{
+    FILE *fp = fopen("maze.txt","w");
+    int fd = open("maze.txt", O_WRONLY);
+
+    for (int h = 0; h < atoi(av[2]); h++)
+        printf("%s", str[h]);
+    for (int i = 0; str[i] != NULL; i++)
+        write(fd, str[i], strlen(str[i]));
+    fclose(fp);
+}
+
 void disp(char **str, char **av)
 {
     int r = 0;
@@ -28,8 +40,7 @@ void disp(char **str, char **av)
         if (i%2 == 0)
             str[i][z] = '*';
     }
-    for (int h = 0; h < atoi(av[2]); h++)
-        printf("%s", str[h]);
+    to_txt(str, av);
 }
 
 void disp_np(char **str, char **av)
@@ -53,8 +64,7 @@ void disp_np(char **str, char **av)
         if (i%3 == 0)
             str[i][z] = '*';
     }
-    for (int h = 0; h < atoi(av[2]); h++)
-        printf("%s", str[h]);
+    to_txt(str, av);
 }
 
 void load_2d_arr_from_file(char **av, int ac)
