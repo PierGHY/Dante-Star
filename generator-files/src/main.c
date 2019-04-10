@@ -28,7 +28,7 @@ void disp(char **str, char **av)
     for (int i = 0; i != atoi(av[2]); i++) {
         for (int j = 0; j != atoi(av[1]) + 1; j++) {
             r = rand();
-            if (j == atoi(av[1]))
+            if (j == atoi(av[1]) && i != atoi(av[2]) - 1)
                 str[i][j] = '\n';
             else if ((j == 0 && i == 0) || i%2 != 0 ||
                 ((j == atoi(av[1]) - 1 && i == atoi(av[2]) -1)))
@@ -39,6 +39,8 @@ void disp(char **str, char **av)
         z = r % atoi(av[1]);
         if (i%2 == 0)
             str[i][z] = '*';
+        if (i == atoi(av[2]) - 1)
+            str[i][atoi(av[1])] = '\0';
     }
     to_txt(str, av);
 }
@@ -52,7 +54,7 @@ void disp_np(char **str, char **av)
     for (int i = 0; i != atoi(av[2]); i++) {
         for (int j = 0; j != atoi(av[1]) + 1; j++) {
             r = rand();
-            if (j == atoi(av[1]))
+            if (j == atoi(av[1]) && i != atoi(av[2]) - 1)
                 str[i][j] = '\n';
             else if ((j == 0 && i == 0) || i%3 != 0 ||
                 ((j == atoi(av[1]) - 1 && i == atoi(av[2]) -1)))
@@ -63,6 +65,8 @@ void disp_np(char **str, char **av)
         z = r % atoi(av[1]);
         if (i%3 == 0)
             str[i][z] = '*';
+        if (i == atoi(av[2]) - 1)
+            str[i][atoi(av[1])] = '\0';
     }
     to_txt(str, av);
 }
